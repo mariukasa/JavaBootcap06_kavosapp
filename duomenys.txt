@@ -1,0 +1,10 @@
+=========Maker status============
+Usages left:50
+is machine ready:false
+=========Product status=========
+Sugar amount left:
+0.0
+Water amount left:
+0.0
+Beans amount left:
+0.0

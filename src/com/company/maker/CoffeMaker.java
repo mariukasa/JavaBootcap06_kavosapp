@@ -1,5 +1,8 @@
 package com.company.maker;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class CoffeMaker {
 
 
@@ -103,21 +106,44 @@ public class CoffeMaker {
 
     public boolean isReady() {
 
-        boolean ready=true;
+        boolean ready = true;
 
-        if (useCount >= MAX_USES) System.out.println("Reikia isplauti aparata");;
-        if (waterAmount <=0.1) {
+        if (useCount >= MAX_USES) System.out.println("Reikia isplauti aparata");
+        ;
+        if (waterAmount <= 0.1) {
             System.out.println("Truksta vandens");
-            ready=false;
-            }
-        if (sugarAmount<=10) {
+            ready = false;
+        }
+        if (sugarAmount <= 10) {
             System.out.println("Truksta cukraus");
-            ready=false;
-            }
-        if (beansAmount<=20) {
+            ready = false;
+        }
+        if (beansAmount <= 20) {
             System.out.println("Truksta pupeliu");
-            ready=false;
-            }
+            ready = false;
+        }
+
+        return ready;
+    }
+
+    public boolean isReadystatus() {
+
+        boolean ready = true;
+
+        if (useCount >= MAX_USES) ready = false;
+
+        if (waterAmount <= 0.1) {
+
+            ready = false;
+        }
+        if (sugarAmount <= 10) {
+
+            ready = false;
+        }
+        if (beansAmount <= 20) {
+
+            ready = false;
+        }
 
         return ready;
     }
@@ -137,6 +163,43 @@ public class CoffeMaker {
         System.out.println("Usages left:" + (MAX_USES - this.useCount));
         System.out.println("is machine ready:" + isReady());
         this.showProducts();
+    }
+
+    public void issaugok() {
+        StringBuilder builder = new StringBuilder("");
+
+        builder.append("=========Maker status============\n");
+        builder.append("Usages left:");
+        builder.append(MAX_USES);
+        builder.append(this.useCount + "\n");
+        builder.append("is machine ready:");
+        builder.append(isReadystatus() + "\n");
+        builder.append("=========Product status=========\n");
+        builder.append("Sugar amount left:\n");
+        builder.append(sugarAmount + "\n");
+        builder.append("Water amount left:\n");
+        builder.append(waterAmount + "\n");
+        builder.append("Beans amount left:\n");
+        builder.append(beansAmount + "\n");
+
+        FileWriter veiksmai = null;
+
+        try {
+            veiksmai = new FileWriter("duomenys.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            veiksmai.write(String.valueOf(builder));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            veiksmai.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

@@ -17,6 +17,8 @@ public class Main {
         System.out.println("2 - rodyti aparato busena");
         System.out.println("3 - plauti aparata");
         System.out.println("4 - pildyti produktus");
+        System.out.println("5 - issaugoti busena");
+
     }
 
     private void dirbam() {
@@ -34,11 +36,12 @@ public class Main {
                     System.out.println("Parasykite kokios kavos norite\nblack\nlatte\nespresso");
                     String kava;
                     do {
-                    kava= sc.nextLine();}
-                  //  if("black".equals(kava)) aparatas.makeCoffe("black");
-                  //  if("latte".equals(kava)) aparatas.makeCoffe("latte");
-                  //  if("black".equals(kava)) aparatas.makeCoffe("espresso");}
-                while(!"black".equals(kava) &&!"latte".equals(kava) &&!"espresso".equals(kava));
+                        kava = sc.nextLine();
+                    }
+                    //  if("black".equals(kava)) aparatas.makeCoffe("black");
+                    //  if("latte".equals(kava)) aparatas.makeCoffe("latte");
+                    //  if("black".equals(kava)) aparatas.makeCoffe("espresso");}
+                    while (!"black".equals(kava) && !"latte".equals(kava) && !"espresso".equals(kava));
                     aparatas.makeCoffe(kava);
                     break;
                 case 2:
@@ -48,16 +51,18 @@ public class Main {
                     aparatas.washMaker();
                     break;
                 case 4:
-                    Float [] papildymas = new Float[3];
-                    for (int i = 0; i <papildymas.length ; i++) {
-                        if(i==0) System.out.println("Iveskite vandens kieki");
-                        if(i==1) System.out.println("Iveskite cukraus kieki");
-                        if(i==2) System.out.println("Iveskite pupeliu kieki");
-                        papildymas[i]=sc.nextFloat();
+                    Float[] papildymas = new Float[3];
+                    for (int i = 0; i < papildymas.length; i++) {
+                        if (i == 0) System.out.println("Iveskite vandens kieki");
+                        if (i == 1) System.out.println("Iveskite cukraus kieki");
+                        if (i == 2) System.out.println("Iveskite pupeliu kieki");
+                        papildymas[i] = sc.nextFloat();
                     }
                     aparatas.fillProducts(papildymas);
                     break;
-
+                case 5:
+                    aparatas.issaugok();
+                    break;
             }
 
         } while (arTesti);

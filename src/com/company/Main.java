@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.maker.CoffeMaker;
+import com.company.maker.Singleton;
 
 import java.util.Scanner;
 
@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Main obj = new Main();
         obj.dirbam();
+
     }
 
     private void showMenu() {
@@ -22,7 +23,7 @@ public class Main {
     }
 
     private void dirbam() {
-        CoffeMaker aparatas = new CoffeMaker();
+        Singleton aparatas =Singleton.getInstance();
         Scanner sc = new Scanner(System.in);
         boolean arTesti = true;
         do {

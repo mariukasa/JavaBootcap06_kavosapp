@@ -3,8 +3,19 @@ package com.company.maker;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class CoffeMaker {
+public class Singleton {
+    private static Singleton firstInstance =null;
 
+    private Singleton(){}
+    public  static Singleton getInstance(){
+        if(firstInstance==null){
+            firstInstance =new Singleton();
+        }
+
+    return firstInstance;
+
+
+    }
 
     public static final int MAX_USES = 5;
     private float sugarAmount;
@@ -13,10 +24,10 @@ public class CoffeMaker {
     private int useCount;
 
 
-    public CoffeMaker() {
-    }
 
-    public CoffeMaker(float water, float sugar, float beans) {
+
+
+    public Singleton(float water, float sugar, float beans) {
         waterAmount = water;
         sugarAmount = sugar;
         beansAmount = beans;
